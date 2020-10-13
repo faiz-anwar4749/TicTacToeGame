@@ -7,7 +7,9 @@ namespace TicTacToe
     public class TicTacToeGame
     {
         public enum Player { USER, COMPUTER };
-        
+        public const int HEADS = 0;
+        public const int TAILS = 1;
+
         public char[] MakeBoard()
         {
             char[] board = new char[10];
@@ -21,13 +23,10 @@ namespace TicTacToe
         {
             Console.Write("Choose your letter,(either X or O): ");
             char userLetterFinal = char.ToUpper(Console.ReadLine()[0]);
-            if (userLetterFinal != 'X' || userLetterFinal != 'O')
+            if (userLetterFinal != 'X' || userLetterFinal != 'O' || userLetterFinal != 'x' || userLetterFinal != 'o')
             {
-                while(userLetterFinal != 'X' && userLetterFinal != 'O')
-                {
-                    Console.WriteLine("Invalid input. Please Enter X or O: ");
-                    userLetterFinal = Console.ReadLine()[0];
-                }      
+                Console.WriteLine("Invalid input. Please Enter X or O: ");
+                userLetterFinal = Console.ReadLine()[0];    
             }
             Console.WriteLine($"You Chose {userLetterFinal}");
             return userLetterFinal;    
@@ -72,6 +71,16 @@ namespace TicTacToe
             {
                 board[index] = a;
             }
+        }
+        public int GetRandomFromToss()
+        {
+            Random random = new Random();
+            return random.Next(0,2);
+        }
+        public Player GetWhoStartsFirst()
+        {
+            int toss = GetRandomFromToss();
+            return (toss == HEADS) ? Player.USER : Player.COMPUTER;
         }
     }
 }
