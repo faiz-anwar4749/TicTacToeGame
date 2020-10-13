@@ -46,7 +46,7 @@ namespace TicTacToe
            {
                 Console.WriteLine("Enter your next move(1-9): ");
                 int index = Convert.ToInt32(Console.ReadLine());
-                if (index >= 1 && index <= 9)
+                if ((index >= 1 && index <= 9) && IsSpaceFree(board,index))
                 {
                     Console.WriteLine($"You chose {index}");
                 }
@@ -65,6 +65,5 @@ namespace TicTacToe
             }
             return board[index] == ' ';
         }
-
     }
 }
