@@ -59,7 +59,12 @@ namespace TicTacToe
         }
         public bool IsSpaceFree(char[] board, int index)
         {
+            if( board[index] == ' ')
+            {
+                Console.WriteLine("space is free");
+            }
             return board[index] == ' ';
         }
+
     }
 }
