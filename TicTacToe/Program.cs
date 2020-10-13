@@ -11,6 +11,7 @@ namespace TicTacToe
             char[] board = ticTacToe.MakeBoard();
             ticTacToe.ChooseLetter();
             ticTacToe.Showboard(board);
+            int userMove = ticTacToe.GetUserMove(board);
         }
     }
 }

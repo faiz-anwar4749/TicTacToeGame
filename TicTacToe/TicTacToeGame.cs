@@ -20,15 +20,14 @@ namespace TicTacToe
         public char ChooseLetter()
         {
             Console.Write("Choose your letter,(either X or O): ");
-            string userLetter = Console.ReadLine();
-            char userLetterFinal = char.ToUpper(userLetter[0]);
+            char userLetterFinal = char.ToUpper(Console.ReadLine()[0]);
             if (userLetterFinal != 'X' || userLetterFinal != 'O')
             {
-                while (userLetterFinal != 'X' && userLetterFinal != 'O')
+                while(userLetterFinal != 'X' && userLetterFinal != 'O')
                 {
                     Console.WriteLine("Invalid input. Please Enter X or O: ");
-                    userLetter = Console.ReadLine();
-                }
+                    userLetterFinal = Console.ReadLine()[0];
+                }      
             }
             Console.WriteLine($"You Chose {userLetterFinal}");
             return userLetterFinal;    
@@ -40,6 +39,25 @@ namespace TicTacToe
             Console.WriteLine("  " + board[4] + "|" + board[5] + "|" + board[6]);
             Console.WriteLine("-----------");
             Console.WriteLine("  " + board[7] + "|" + board[8] + "|" + board[9]);
+        }
+        public int GetUserMove(char[] board)
+        {
+            Console.WriteLine("Enter your next move(1-9): ");
+            int index = Convert.ToInt32(Console.ReadLine());
+            if((index >=1 && index<= 9) && IsSpaceFree(board,index))
+            {
+                return index;
+            }
+            else
+            {
+                Console.WriteLine("Invalid move. Please try again");
+            }
+            return index;
+               
+        }
+        public bool IsSpaceFree(char[] board, int index)
+        {
+            return board[index] == ' ';
         }
     }
 }
