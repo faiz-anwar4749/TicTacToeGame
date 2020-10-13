@@ -42,18 +42,20 @@ namespace TicTacToe
         }
         public int GetUserMove(char[] board)
         {
-            Console.WriteLine("Enter your next move(1-9): ");
-            int index = Convert.ToInt32(Console.ReadLine());
-            if((index >=1 && index<= 9) && IsSpaceFree(board,index))
-            {
+           while(true)
+           {
+                Console.WriteLine("Enter your next move(1-9): ");
+                int index = Convert.ToInt32(Console.ReadLine());
+                if (index >= 1 && index <= 9)
+                {
+                    Console.WriteLine($"You chose {index}");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid move. Please try again");
+                }
                 return index;
-            }
-            else
-            {
-                Console.WriteLine("Invalid move. Please try again");
-            }
-            return index;
-               
+           }
         }
         public bool IsSpaceFree(char[] board, int index)
         {
