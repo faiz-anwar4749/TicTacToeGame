@@ -65,14 +65,13 @@ namespace TicTacToe
             }
             return board[index] == ' ';
         }
-        public void MakeAMove(char[] board, int index, char a )
+        public void MakeAMove(char[] board, int index, char a)
         {
             bool spaceIsFree = IsSpaceFree(board, index);
             if (spaceIsFree)
             {
                 board[index] = a;
             }
-
         }
     }
 }
