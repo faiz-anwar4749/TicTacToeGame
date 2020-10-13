@@ -33,5 +33,13 @@ namespace TicTacToe
             Console.WriteLine($"You Chose {userLetterFinal}");
             return userLetterFinal;    
         }
+        public void Displayboard(char[] board)
+        {
+            Console.WriteLine("  " + board[1] + "|" + board [2] + "|" + board[3]);
+            Console.WriteLine("-----------");
+            Console.WriteLine("  " + board[4] + "|" + board[5] + "|" + board[6]);
+            Console.WriteLine("-----------");
+            Console.WriteLine("  " + board[7] + "|" + board[8] + "|" + board[9]);
+        }
     }
 }
